@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Example</title>
+    <link rel="stylesheet" href="website.css">
+</head>
+<body>
+    <!-- 搜索栏 -->
+    <div class="search-container">
+        <input type="text" id="search-bar" placeholder="Search..." oninput="search()">
+        <button onclick="search()">Search</button>
+    </div>
+    <div id="results"></div>
+
+    <script>
+        async function search() {
+            const query = document.getElementById('search-bar').value;
+            if (!query) return;
+
+            try {
+                const response = await fetch(`http://localhost:3000/search?query=${query}`);
+                const data = await response.json();
+                displayResults(data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        function displayResults(data) {
+            const resultsContainer = document.getElementById('results');
+            resultsContainer.innerHTML = '';
+            data.forEach(item => {
+                const div = document.createElement('div');
+                div.textContent = item.name; // 假设返回的数据包含 name 字段
+                resultsContainer.appendChild(div);
+            });
+        }
+    </script>
+</body>
+</html>

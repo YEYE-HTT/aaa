@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Freecycling!</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arimo:wght@600&family=Caveat:wght@400..700&family=Sedan&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Kalam:wght@700&family=Merriweather&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1c4b2b8f9d.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header id='banner'>
+        <img src="logo.png" alt="logo of the Freecycling! website." id='logo'>
+        <nav id='menu'>
+            <a href="#" class="singleMenu selected">HOME</a>
+            <a href="#" class="singleMenu">LEARN</a>
+            <a href="#" class="singleMenu">NEWS</a>
+            <a href="#" class="singleMenu">EVENTS</a>
+        </nav>
+        <p id='slogan'>Share More, Waste Less, Freecycling for the future.</p>
+        <a href="#" id="trigger-modal">Register</a>
+    </header>
+    <main id='main'>
+        <img src="image.jpg"
+            alt="One person takes unused clothing from a box held by another, demonstrating the freecycling movement and the concept of sustainability."
+            style="width: 100%; position: absolute; top: 0;">
+        <section id="pictureOverlay">
+            <h1 id="websiteTitle">Share What You Have, And Find What You Need</h1>
+
+            <h3 id="websiteExplanation">We are a platform that enables a cycle of giving and receiving. Here, you can
+                give your unused items to others
+                <br>or find needed pre-loved items instead of buying new ones, all for free.
+            </h3>
+
+            <form id="searchBox">
+                <input type="text" placeholder="Search for items or location..." id="searchBoxInput"
+                    style="color:#163215;">
+                <button type="submit" id="searchBoxButton"><i class="fa-solid fa-magnifying-glass"
+                        style="width:90%;"></i></button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        var input = document.getElementById('searchBoxInput');
+        var border = document.getElementById('searchBox');
+
+        input.addEventListener('focus', function () {
+            border.style.boxShadow = "0 0 7px 3px #00BB2D";
+        });
+
+        input.addEventListener('blur', function () {
+            border.style.boxShadow = "0 0 20px 0 #353535";
+        });
+    </script>
+
+    <section id='content'>
+        <article class='singleContent'>
+            <h2 class="articleHeading">Kia Ora</h2>
+            <p class="articleContent">Welcome to our community! We are a website that promotes sharing and
+                sustainability - Rather than buying, you can find the items you need here, completely free!</p>
+            <a href="#" class="articleLink">Learn More<i class="fa-solid fa-angles-right"></i></a>
+        </article>
+        <article class=singleContent>
+            <h2 class="articleHeading">What Is Freecycle?</h2>
+            <p class="articleContent">Freecycle is a campaign dedicated to reducing the waste of items and supporting
+                communities. We advocate for giving away unwanted items to those who need them or to obtain such items
+                for free.</p>
+            <a href="#" class="articleLink">Learn More<i class="fa-solid fa-angles-right"></i></a>
+        </article>
+        <article class=singleContent>
+            <h2 class="articleHeading">Our Goal</h2>
+            <p class="articleContent">Our mission is simple: to help items find new homes and keep usable goods out of
+                landfills. Reduce the need for brand-new items, reducing waste and pollution. </p>
+            <a href="#" class="articleLink">Learn More <i class="fa-solid fa-angles-right"></i></a>
+        </article>
+    </section>
+
+    <a href="#" id="helpFile">?</a>
+
+    <script>
+        var helpFile = document.getElementById('helpFile');
+
+        helpFile.addEventListener('mouseenter', function () {
+            helpFile.textContent = 'Help File';
+        });
+
+        helpFile.addEventListener('mouseleave', function () {
+            helpFile.textContent = '?';
+        });
+
+        helpFile.addEventListener('focus', function () {
+            helpFile.textContent = 'Help File';
+        });
+
+        helpFile.addEventListener('blur', function () {
+            helpFile.textContent = '?';
+        });
+
+    </script>
+
+    <div id="form-ct">
+        <i class="fa-solid fa-xmark"></i>
+        <form id="registerForm">
+            <div id="user-details">
+                <label for="givenName" class="formLabel">Given name</label>
+                <input type="text" id="givenName" class="formInput">
+
+                <label for="surname" class="formLabel">Surname</label>
+                <input type="text" id="surname" class="formInput">
+
+                <label for="username" class="formLabel">Username</label>
+                <input type="text" id="username" class="formInput">
+
+                <label for="password" class="formLabel">Password</label>
+                <input type="password" id="password" class="formInput">
+
+            </div>
+            <div id="address-details">
+                <label for="homeAddress" class="formLabel">Home Address</label>
+                <input type="text" id="homeAddress" class="formInput">
+
+                <label for="workAddress" class="formLabel">Work Address</label>
+                <input type="text" id="workAddress" class="formInput">
+
+            </div>
+            <div id="contact-details">
+                <label for="mobileNumber" class="formLabel">Mobile Number</label>
+                <input type="tel" id="mobileNumber" class="formInput">
+
+                <label for="email" class="formLabel">Email</label>
+                <input type="email" id="email" class="formInput">
+
+            </div>
+        </form>
+
+    </div>
+
+    <script>
+        var form = document.getElementById("form-ct");
+
+        var openButton = document.getElementById("trigger-modal");
+
+        var closeButton = document.getElementsByClassName("fa-xmark")[0];
+
+        openButton.onclick = function () {
+            form.style.display = "block";
+        }
+
+        closeButton.onclick = function () {
+            form.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == form) {
+                form.style.display = "none";
+            }
+        }
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key == "Escape") {
+                form.style.display = "none"
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
